@@ -14,7 +14,7 @@ class User_model extends CI_Model{
 			return FALSE;
 		}
 	}
-	
+
 	public function getUser($data){
 		$user = $this->db->get_where('user', $data)->result();
 		if (empty($user)) {
@@ -22,6 +22,16 @@ class User_model extends CI_Model{
 		}
 		else{
 			return $user;
+		}
+	}
+
+	public function addFriend($data){
+		$insert = $this->db->insert('friend', $data);
+		if ($insert == 1) {
+			return TRUE;
+		}
+		else{
+			return FALSE;
 		}
 	}    
 }

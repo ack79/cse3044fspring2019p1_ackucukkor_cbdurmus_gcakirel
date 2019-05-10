@@ -73,6 +73,41 @@ class User extends CI_Controller {
 
 	}
 
+	public function addFriend(){
+		$user_id = $this->input->post('user_id');
+		$friend_user_id = $this->input->post('friend_user_id');
+
+		if ($user_id == null || $friend_user_id == null ) {
+			$this->errorResponse("Eksik parametre girdiniz.");
+			exit();
+		}
+
+		$data = array(
+	        'first_user_id' => $user_id,
+	        'second_user_id' => $friend_user_id
+		);
+
+		$this->load->model('user_model');
+		$result = $this->user_model->addFriend($data);
+
+		if ($result == FALSE) {
+			$this->errorResponse("Arkadaş eklemede sorun oluştu.");
+			exit();
+		}
+		else{
+			header('Access-Control-Allow-Origin: *');
+			header('Content-type: application/json');
+
+			$response = new stdClass();
+			$response->success = TRUE;
+			$response->message = "Arkadaş ekleme başarılı.";
+		
+			echo json_encode($response,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+		}
+
+
+	}
+
 	private function errorResponse($errorMessage="Something went wrong."){
 		header('Access-Control-Allow-Origin: *');
 		header('Content-type: application/json');
