@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.1.34-MariaDB)
 # Database: libra
-# Generation Time: 2019-05-09 13:50:37 +0000
+# Generation Time: 2019-05-10 13:32:05 +0000
 # ************************************************************
 
 
@@ -22,8 +22,6 @@
 
 # Dump of table advert
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `advert`;
 
 CREATE TABLE `advert` (
   `advert_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -41,8 +39,6 @@ CREATE TABLE `advert` (
 # Dump of table book
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `book`;
-
 CREATE TABLE `book` (
   `book_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `book_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
@@ -50,6 +46,7 @@ CREATE TABLE `book` (
   `book_desc` text COLLATE utf8_turkish_ci,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) unsigned NOT NULL,
+  `img` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
   PRIMARY KEY (`book_id`),
   CONSTRAINT `user_has_book` FOREIGN KEY (`book_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
@@ -58,8 +55,6 @@ CREATE TABLE `book` (
 
 # Dump of table friend
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `friend`;
 
 CREATE TABLE `friend` (
   `first_user_id` int(11) unsigned NOT NULL,
@@ -75,8 +70,6 @@ CREATE TABLE `friend` (
 # Dump of table message
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `message`;
-
 CREATE TABLE `message` (
   `message_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sender_user_id` int(11) unsigned NOT NULL,
@@ -89,8 +82,6 @@ CREATE TABLE `message` (
 
 # Dump of table post
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `post`;
 
 CREATE TABLE `post` (
   `post_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -106,13 +97,11 @@ CREATE TABLE `post` (
 # Dump of table user
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `user`;
-
 CREATE TABLE `user` (
   `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
   `password` varchar(16) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
-  `user_bio` varchar(240) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `user_bio` varchar(240) COLLATE utf8_turkish_ci DEFAULT '',
   `user_img` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
