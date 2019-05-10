@@ -13,5 +13,15 @@ class User_model extends CI_Model{
 		else{
 			return FALSE;
 		}
+	}
+	
+	public function getUser($data){
+		$user = $this->db->get_where('user', $data)->result();
+		if (empty($user)) {
+			return FALSE;
+		}
+		else{
+			return $user;
+		}
 	}    
 }
