@@ -30,15 +30,25 @@ class Post_model extends CI_Model{
 		$this->db->or_where_in('user_id', $friendIDArray);
 		$this->db->order_by('created_date', 'DESC');
 		$timeline = $this->db->get('post')->result_array();
-		
+
 		if (empty($timeline)) {
 			return FALSE;
 		}
 		else{
 			$this->db->where_in('user_id', $friendIDArray);
 			$userInfo = $this->db->get('user')->result_array();
-			$postAndUser = ["post" => $timeline, "user" => $userInfo];
-			return $postAndUser;
+
+			for ($i=0; $i < count($timeline) ; $i++) { 
+				$postUserID = $timeline[$i]['user_id'];
+				foreach ($userInfo as $user) {
+					if ($user['user_id'] == $postUserID) {
+						$timeline[$i]['userInfo'] = $user;
+						break;
+					}
+				}
+			}
+			
+			return $timeline;
 		}
 
 
