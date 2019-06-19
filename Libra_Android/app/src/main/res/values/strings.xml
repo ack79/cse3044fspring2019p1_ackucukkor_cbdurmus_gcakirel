@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Libra</string>
+    <string name="title_timeline">Timeline</string>
+    <string name="title_search">Search</string>
+    <string name="title_adverts">Adverts</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_library">Library</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="no_account_yet_create_one">No account yet? Create one</string>
+    <string name="name">Name</string>
+    <string name="already_a_member_login">Already a member? Login</string>
+    <string name="create_account">Create Account</string>
+    <!--<string name="preference_file_key">com.canberkdurmus.libra.PREFERENCE_FILE_KEY</string>-->
+    <string name="preference_file_key">com.canberkdurmus.libra.PREFERENCE_FILE_KEY</string>
+    <string name="username">Username</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

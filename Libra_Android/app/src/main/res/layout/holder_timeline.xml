@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp">
+
+    <ImageView
+        android:id="@+id/imageViewProfile"
+        style="@style/imageViewProfile"
+        android:src="@drawable/profile" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutHeader"
+        style="@style/linearLayoutHorizontal"
+        android:layout_toEndOf="@id/imageViewProfile">
+
+        <TextView
+            android:id="@+id/username"
+            style="@style/textViewTweet"
+            android:layout_marginStart="0dp"
+            android:text="username"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTweetTime"
+            style="@style/textViewTweet"
+            android:text="time" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/postText"
+        style="@style/textViewTweet"
+        android:layout_below="@id/linearLayoutHeader"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/imageViewProfile"
+        android:text="Tweeeeeet" />
+
+    <LinearLayout
+        style="@style/linearLayoutHorizontal"
+        android:layout_below="@id/postText"
+        android:layout_alignStart="@id/postText"
+        android:layout_marginEnd="40dp">
+
+        <ImageView
+            android:id="@+id/imageViewChats"
+            style="@style/imageViewBottom"
+            android:src="@drawable/message" />
+
+        <TextView
+            android:id="@+id/textViewChats"
+            style="@style/textViewBottom" />
+
+        <ImageView
+            android:id="@+id/imageViewRetweet"
+            style="@style/imageViewBottom"
+            android:src="@drawable/retweet" />
+
+        <TextView
+            android:id="@+id/textViewRetweet"
+            style="@style/textViewBottom" />
+
+        <ImageView
+            android:id="@+id/imageViewLike"
+            style="@style/imageViewBottom"
+            android:src="@drawable/like" />
+
+        <TextView
+            android:id="@+id/textViewLike"
+            style="@style/textViewBottom" />
+
+        <ImageView
+            android:id="@+id/imageViewPrivateMessage"
+            style="@style/imageViewBottom"
+            android:src="@drawable/private_message" />
+    </LinearLayout>
+</RelativeLayout>
